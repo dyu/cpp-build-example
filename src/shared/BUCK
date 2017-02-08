@@ -1,0 +1,11 @@
+cxx_library(
+    name = 'shared',
+    srcs = glob(['main/*.cpp']),
+    exported_headers = {
+        'mathematics.h': 'main/mathematics.h'
+    },
+    visibility = ['PUBLIC'],
+    compiler_flags = [ '-std=c++14', '-Wall' ],
+    link_style = 'shared',
+    #linker_flags = [ '-shared', '-fPIC' ],
+)

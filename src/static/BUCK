@@ -1,0 +1,9 @@
+cxx_library(
+    name = 'static',
+    srcs = glob(['main/*.cpp']),
+    exported_headers = {
+        'greeting.h': 'main/greeting.h'
+    },
+    visibility = ['PUBLIC'],
+    compiler_flags = [ '-std=c++14', '-Wall' ],
+)
