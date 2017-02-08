@@ -1,5 +1,5 @@
 [alias]
-    executable = //src/executable:executable
+    executable = //:executable
 
 #[cxx]
 #    gtest_dep = //third-party/cxx/googletest:googletest

@@ -1,9 +1,0 @@
-cxx_binary(
- name = 'executable',
- srcs = glob(['main/*.cpp']),
- deps = [
-    '//src/static:static',
-    '//src/shared:shared',
- ],
- compiler_flags = [ '-std=c++14', '-Wall' ],
-)
