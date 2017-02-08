@@ -5,7 +5,7 @@ cxx_library(
         ("src/shared/main", "*.h"),
     ]),
     visibility = ['PUBLIC'],
-    compiler_flags = [ '-std=c++14', '-Wall', '-fPIC', '-shared' ],
+    compiler_flags = [ '-std=c++14', '-Wall' ] #, '-fPIC', '-shared' ],
     #preferred_linkage = 'shared',
     #exported_linker_flags = '-L$(location //:shared)',
 )
