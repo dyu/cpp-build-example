@@ -4,6 +4,21 @@ project('cpp build test', 'cpp',
 boost_dep = dependency('boost',
   modules : ['date_time', 'test'])
 
+thread_dep = dependency('threads')
+gtest_dep = dependency('gtest', main : true, required : false)
+
+if not gtest_dep.found()
+    gtest_proj = subproject('gtest')
+    gtest_inc = gtest_proj.get_variable('incdir')
+    gtest_proj.get_variable('incdir')
+    gtest_lib = static_library('gtest', gtest_proj.get_variable('libsources'),
+                                gtest_proj.get_variable('mainsources'),
+                                include_directories : gtest_inc)
+
+    gtest_dep = declare_dependency(include_directories : gtest_inc,
+                               link_with : gtest_lib, dependencies: thread_dep)
+endif
+
 stinc = include_directories('src/static/main')
 shinc = include_directories('src/shared/main')
 
