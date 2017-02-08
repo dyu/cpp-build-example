@@ -11,7 +11,8 @@ ninja test
 
 ## buck
 ```sh
-buck build executable
+buck build //:executable
+buck test //:shared_gtest
 
 # run
 ./buck-out/gen/executable

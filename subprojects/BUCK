@@ -1,0 +1,30 @@
+cxx_library(
+  name = 'gtest',
+  srcs = [
+    'googletest-release-1.8.0/googletest/src/gtest-all.cc',
+    'googletest-release-1.8.0/googlemock/src/gmock-all.cc',
+    'googletest-release-1.8.0/googlemock/src/gmock_main.cc',
+  ],
+  header_namespace = '',
+  exported_headers = subdir_glob([
+    ('googletest-release-1.8.0/googletest/include', '**/*.h'),
+    ('googletest-release-1.8.0/googlemock/include', '**/*.h'),
+  ]),
+  headers = subdir_glob([
+    ('googletest-release-1.8.0/googletest', 'src/*.cc'),
+    ('googletest-release-1.8.0/googletest', 'src/*.h'),
+    ('googletest-release-1.8.0/googlemock', 'src/*.cc'),
+    ('googletest-release-1.8.0/googlemock', 'src/*.h'),
+  ]),
+  exported_linker_flags = [
+    '-pthread',
+#    '-lpthread',
+  ],
+#  platform_linker_flags = [
+#    ('android', []),
+#    ('', ['-pthread', '-lpthread']),
+#  ],
+  visibility = [
+    'PUBLIC',
+  ],
+)

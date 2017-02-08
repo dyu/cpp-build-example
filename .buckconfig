@@ -3,5 +3,4 @@
 
 [cxx]
     cxxflags = -std=c++14 -Wall
-#    boost_test_dep = 
-#    gtest_dep = //third-party/cxx/googletest:googletest
+    gtest_dep = //subprojects:gtest
