@@ -1,3 +1,5 @@
+Originally derived from https://github.com/sazzer/cpp-build-systems
+
 ## meson
 ```sh
 mkdir build && cd build
