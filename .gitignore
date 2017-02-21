@@ -1,5 +1,6 @@
 build
 buck-out
 .buckd
+build9k
 
 /subprojects/*/
