@@ -6,7 +6,7 @@ static_inc = header_directory('src/static/main', include='*.h')
 shared_inc = header_directory('src/shared/main', include='*.h')
 
 static_lib = static_library('static', files=['src/static/main/greeting.cpp'])
-shared_lib = shared_library('shared', files=['src/shared/main/add.cpp', 'src/shared/main/multiply.cpp'])
+shared_lib = static_library('shared', files=['src/shared/main/add.cpp', 'src/shared/main/multiply.cpp'])
 
 executable = executable('executable', 
                         files=['src/executable/main/main.cpp'],
