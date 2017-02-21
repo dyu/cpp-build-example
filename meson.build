@@ -32,7 +32,7 @@ static_lib = static_library('static', 'src/static/main/greeting.cpp')#,
 #  include_directories : static_inc)
 #test('static', static_test)
 
-shared_lib = shared_library('static',
+shared_lib = static_library('shared',
   'src/shared/main/add.cpp',
   'src/shared/main/multiply.cpp')
 #shared_test = executable('shared_test',
