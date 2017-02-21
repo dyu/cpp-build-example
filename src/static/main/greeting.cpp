@@ -1,9 +1,9 @@
 #include "greeting.h"
 
-using namespace std::literals;
+//using namespace std::literals;
 
 /** The prefix to use for the greeting */
-const auto GREETING_PREFIX = "Hello, "s;
+//const auto GREETING_PREFIX = "Hello, "s;
 
 /**
  * Generate a greeting to use for the given name
@@ -11,5 +11,5 @@ const auto GREETING_PREFIX = "Hello, "s;
  * @return the greeting to use for the name
  */
 const std::string greeting(const std::string& name) {
-  return GREETING_PREFIX + name;
+  return "Hello, " + name;
 }
