@@ -4,10 +4,6 @@ project(hello)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-#set(CMAKE_CXX_STANDARD 14)
-#set(CMAKE_CXX_STANDARD_REQUIRED 1)
-#set(CMAKE_CXX_EXTENSIONS 0)
-
 enable_testing()
 find_package(GTest REQUIRED)
 
@@ -28,3 +24,7 @@ add_test(all_tests bin/shared_gtest)
 
 add_executable(executable src/executable/main/main.cpp)
 target_link_libraries(executable static shared)
+
+set_target_properties(
+    static shared shared_gtest executable
+    PROPERTIES CXX_STANDARD 14)
