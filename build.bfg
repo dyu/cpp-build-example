@@ -2,16 +2,47 @@
 
 project('hello', '1.0')
 
+global_options(['-std=c++11'], lang='c++')
+
+pthread = ''
+if env.platform.name == 'linux':
+    pthread = '-pthread'
+
 static_inc = header_directory('src/static/main', include='*.h')
 shared_inc = header_directory('src/shared/main', include='*.h')
 
 static_lib = static_library('static', files=['src/static/main/greeting.cpp'])
 shared_lib = static_library('shared', files=['src/shared/main/add.cpp', 'src/shared/main/multiply.cpp'])
 
-executable = executable('executable', 
-                        files=['src/executable/main/main.cpp'],
-                        includes=[static_inc, shared_inc],
-                        libs=[static_lib, shared_lib])
+# gtest
+gtest_inc = header_directory('subprojects/googletest-release-1.8.0/googletest/include', include='**/*.h')
+gmock_inc = header_directory('subprojects/googletest-release-1.8.0/googlemock/include', include='**/*.h')
+gtest_lib = static_library('gtest',
+    files=[
+        'subprojects/googletest-release-1.8.0/googletest/src/gtest-all.cc',
+        'subprojects/googletest-release-1.8.0/googlemock/src/gmock-all.cc',
+        'subprojects/googletest-release-1.8.0/googlemock/src/gmock_main.cc',
+    ],
+    includes=[
+        'subprojects/googletest-release-1.8.0/googletest',
+        'subprojects/googletest-release-1.8.0/googlemock',
+        gtest_inc,
+        gmock_inc,
+    ],
+)
 
-default(executable)
+# test
+shared_gtest = executable('shared_gtest',
+    files=['src/shared/gtest/add_test.cpp'],
+    includes=[gtest_inc, gmock_inc, shared_inc],
+    libs=[gtest_lib, shared_lib],
+    link_options=[pthread],
+)
+test(shared_gtest)
+
+executable = executable('executable', 
+    files=['src/executable/main/main.cpp'],
+    includes=[static_inc, shared_inc],
+    libs=[static_lib, shared_lib],
+)
 

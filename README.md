@@ -25,4 +25,5 @@ buck test //:shared_gtest
 9k build9k
 cd build9k
 ninja
+ninja test
 ```
