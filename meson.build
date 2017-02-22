@@ -25,14 +25,16 @@ shared_lib = static_library('shared',
   'src/shared/main/add.cpp',
   'src/shared/main/multiply.cpp')
 
-if meson.get_compiler('cpp').get_id() == 'clang'
-  extra_args = ['--coverage']
+if meson.get_compiler('cpp').get_id() == 'msvc'
+  gtest_dep_link_args = ['/subsystem:console']
+elif meson.get_compiler('cpp').get_id() == 'clang'
+  gtest_dep_link_args = ['--coverage']
 else
-  extra_args = []
+  gtest_dep_link_args = []
 endif
 
 shared_gtest = executable('shared_gtest', 'src/shared/gtest/add_test.cpp', include_directories : shared_inc,
-        dependencies : [gtest_dep], link_with: shared_lib, link_args : extra_args)
+        link_with: shared_lib, link_args: gtest_dep_link_args, dependencies: [gtest_dep])
 
 test('shared_gtest', shared_gtest, args: '--gtest_color=yes')
 
