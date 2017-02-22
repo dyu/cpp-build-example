@@ -2,10 +2,11 @@
 
 project('hello', '1.0')
 
-global_options(['-std=c++11'], lang='c++')
-
 pthread = ''
-if env.platform.name == 'linux':
+if env.platform.name == 'windows':
+    global_options(['/std:c++14', '/EHsc'], lang='c++')
+else:
+    global_options(['-std=c++14'], lang='c++')
     pthread = '-pthread'
 
 static_inc = header_directory('src/static/main', include='*.h')
