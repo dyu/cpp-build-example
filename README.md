@@ -22,7 +22,7 @@ ninja test
 ./executable
 ```
 
-## cmake and conan
+## [cmake](https://cmake.org) with [conan](https://conan.io)
 ```sh
 mkdir cmake-out && cd cmake-out
 conan install .. --build missing
