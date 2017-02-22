@@ -22,6 +22,18 @@ ninja test
 ./executable
 ```
 
+## cmake and conan
+```sh
+mkdir cmake-out && cd cmake-out
+conan install .. --build missing
+cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Release
+ninja
+ninja test
+
+# run
+./bin/executable
+```
+
 ## [buck](https://github.com/facebook/buck)
 ```sh
 buck build //:executable
