@@ -3,7 +3,7 @@ Originally derived from https://github.com/sazzer/cpp-build-systems
 ## [meson](https://github.com/mesonbuild/meson)
 ```sh
 mkdir build && cd build
-meson ..
+meson .. --buildtype release
 ninja
 ninja test
 
