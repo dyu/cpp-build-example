@@ -2,8 +2,19 @@ Originally derived from https://github.com/sazzer/cpp-build-systems
 
 ## [meson](https://github.com/mesonbuild/meson)
 ```sh
-mkdir build && cd build
+mkdir meson-out && cd meson-out
 meson .. --buildtype release
+ninja
+ninja test
+
+# run
+./executable
+```
+
+## [bfg9000](https://github.com/jimporter/bfg9000)
+```sh
+9k bfg9000-out
+cd bfg9000-out
 ninja
 ninja test
 
@@ -20,10 +31,3 @@ buck test //:shared_gtest
 ./buck-out/gen/executable
 ```
 
-## [bfg9000](https://github.com/jimporter/bfg9000)
-```sh
-9k build9k
-cd build9k
-ninja
-ninja test
-```
