@@ -7,7 +7,6 @@ gtest_dep = dependency('gtest', main : true, required : false)
 if not gtest_dep.found()
     gtest_proj = subproject('gtest')
     gtest_inc = gtest_proj.get_variable('incdir')
-    gtest_proj.get_variable('incdir')
     gtest_lib = static_library('gtest', gtest_proj.get_variable('libsources'),
                                 gtest_proj.get_variable('mainsources'),
                                 include_directories : gtest_inc)
