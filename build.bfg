@@ -5,10 +5,10 @@ project('hello', '1.0')
 pthread = ''
 gtest_lib_link_opts = []
 if env.platform.name == 'windows':
-    global_options(['/std:c++14', '/EHsc'], lang='c++')
+    global_options(['/std:c++14', '/O2', '/W3', '/DNDEBUG', '/EHsc', '/DWIN32', '/D_WINDOWS'], lang='c++')
     gtest_lib_link_opts.append('/subsystem:console')
 else:
-    global_options(['-std=c++14'], lang='c++')
+    global_options(['-std=c++14', '-O2', '-Wall', '-DNDEBUG'], lang='c++')
     pthread = '-pthread'
     gtest_lib_link_opts.append(pthread)
 
