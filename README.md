@@ -2,12 +2,19 @@ Originally derived from https://github.com/sazzer/cpp-build-systems
 
 Static libs by default to work on windows (only buck does not run on windows)
 
-On windows:
-- install [vc build tools 2015](http://go.microsoft.com/fwlink/?LinkId=691126&fixForIE=.exe).
-- exec this before running the builds.
-  ```
-  call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64
-  ```
+### Linux
+Install g++
+
+### Windows
+Install [vc build tools 2015](http://go.microsoft.com/fwlink/?LinkId=691126&fixForIE=.exe).
+
+Exec this before running the builds.
+```
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64
+```
+
+### Tool-specific requirements
+Go to their homepage and install the their respective dependencies.
 
 ## [meson](https://github.com/mesonbuild/meson)
 ```sh
