@@ -3,7 +3,7 @@ Originally derived from https://github.com/sazzer/cpp-build-systems
 Static libs by default to work on windows (only buck does not run on windows)
 
 ### Linux
-Install g++
+Install g++ (4.9 or higher)
 
 ### Windows
 Install [vc build tools 2015](http://go.microsoft.com/fwlink/?LinkId=691126&fixForIE=.exe).
