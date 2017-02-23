@@ -1,5 +1,7 @@
 Originally derived from https://github.com/sazzer/cpp-build-systems
 
+Static libs by default to work on windows (only buck does not run on windows)
+
 ## [meson](https://github.com/mesonbuild/meson)
 ```sh
 mkdir meson-out && cd meson-out
