@@ -34,13 +34,22 @@ static_library("shared") {
 }
 
 # ==================================================
+# test
+
+executable("shared_gtest") {
+  testonly = true
+  sources = [ "src/shared/gtest/add_test.cpp" ]
+  deps = [
+    "//subprojects:gtest_main",
+    ":shared",
+  ]
+}
+
+# ==================================================
 # executable
 
 executable("executable") {
-  sources = [
-    "src/executable/main/main.cpp",
-  ]
-  
+  sources = [ "src/executable/main/main.cpp" ]
   deps = [
     ":shared",
     ":static",
