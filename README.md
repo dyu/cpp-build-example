@@ -59,3 +59,32 @@ buck test //:shared_gtest
 ./buck-out/gen/executable
 ```
 
+## [gn](https://chromium.googlesource.com/chromium/src/tools/gn/+/HEAD/README.md)
+Very similar to [bazel](https://bazel.build) with a few [differences](https://chromium.googlesource.com/chromium/src/tools/gn/+/HEAD/docs/language.md#Differences-and-similarities-to-Blaze)
+
+Download the [binary](http://refi64.com/gn-builds/) appropriate for your platform and add it to your exec PATH.
+
+Initial:
+```
+# print out your gn version (At the time of this writing, mine was 446079)
+gn --version
+
+# import the cross-platform build config/toolchain template
+git clone --depth 1 --single-branch -b master https://github.com/dyu/gn-build build
+```
+
+Setup linux:
+```
+gn gen gn-out --args='gcc_cc="gcc" gcc_cxx="g++" is_debug=false is_clang=false is_official_build=true'
+```
+
+Setup windows:
+```
+gn gen gn-out --args="visual_studio_path=\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\" visual_studio_version=\"2015\" is_debug=false is_clang=false is_official_build=true"
+```
+
+### Build
+```sh
+ninja -C gn-out
+```
+

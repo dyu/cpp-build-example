@@ -1,0 +1,49 @@
+# Copyright 2014 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# =====================================
+# static
+
+config("static_config") {
+  include_dirs = [ "src/static/main" ]
+}
+
+static_library("static") {
+  public_configs = [ ":static_config" ]
+  sources = [
+    "src/static/main/greeting.h",
+    "src/static/main/greeting.cpp",
+  ]
+}
+
+# =====================================
+# shared
+
+config("shared_config") {
+  include_dirs = [ "src/shared/main" ]
+}
+
+static_library("shared") {
+  public_configs = [ ":shared_config" ]
+  sources = [
+    "src/shared/main/mathematics.h",
+    "src/shared/main/add.cpp",
+    "src/shared/main/multiply.cpp",
+  ]
+}
+
+# =====================================
+# executable
+
+executable("executable") {
+  sources = [
+    "src/executable/main/main.cpp",
+  ]
+  
+  deps = [
+    ":shared",
+    ":static",
+  ]
+}
+
