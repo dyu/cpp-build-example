@@ -2,7 +2,7 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-# =====================================
+# ==================================================
 # static
 
 config("static_config") {
@@ -17,7 +17,7 @@ static_library("static") {
   ]
 }
 
-# =====================================
+# ==================================================
 # shared
 
 config("shared_config") {
@@ -33,7 +33,7 @@ static_library("shared") {
   ]
 }
 
-# =====================================
+# ==================================================
 # executable
 
 executable("executable") {
